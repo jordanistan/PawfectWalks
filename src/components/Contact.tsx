@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, MapPin } from 'lucide-react';
 
 export default function Contact() {
   return (
@@ -8,19 +8,25 @@ export default function Contact() {
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">Get in Touch</h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Ready to give your dog the care they deserve? Contact us to schedule a free consultation.
+            Ready to give your dog the care they deserve? Email us to schedule a free consultation.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-12">
           <div className="bg-white rounded-2xl shadow-xl p-8">
-            <form className="space-y-6">
+            <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" className="space-y-6">
+              <input type="hidden" name="form-name" value="contact" />
+              <p className="hidden">
+                <label>Do not fill this out: <input name="bot-field" /></label>
+              </p>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Your Name
                 </label>
                 <input
+                  name="name"
                   type="text"
+                  required
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-400 focus:border-transparent"
                   placeholder="John Doe"
                 />
@@ -30,19 +36,11 @@ export default function Contact() {
                   Email Address
                 </label>
                 <input
+                  name="email"
                   type="email"
+                  required
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-400 focus:border-transparent"
                   placeholder="john@example.com"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Phone Number
-                </label>
-                <input
-                  type="tel"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-400 focus:border-transparent"
-                  placeholder="(555) 123-4567"
                 />
               </div>
               <div>
@@ -50,6 +48,8 @@ export default function Contact() {
                   About Your Dog
                 </label>
                 <textarea
+                  name="dog_details"
+                  required
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-400 focus:border-transparent"
                   rows={4}
                   placeholder="Tell us about your dog's breed, age, and any special needs..."
@@ -68,20 +68,11 @@ export default function Contact() {
             <div className="bg-white rounded-2xl shadow-xl p-8">
               <div className="flex items-center space-x-4 mb-6">
                 <div className="p-3 bg-amber-400 rounded-full">
-                  <Phone className="h-6 w-6 text-white" />
-                </div>
-                <div>
-                  <h3 className="font-semibold">Phone</h3>
-                  <p className="text-gray-600">(555) 123-4567</p>
-                </div>
-              </div>
-              <div className="flex items-center space-x-4 mb-6">
-                <div className="p-3 bg-amber-400 rounded-full">
                   <Mail className="h-6 w-6 text-white" />
                 </div>
                 <div>
                   <h3 className="font-semibold">Email</h3>
-                  <p className="text-gray-600">hello@pawfectwalks.com</p>
+                  <a href="mailto:hello@pawsfectwalks.com" className="text-gray-600 hover:text-amber-600 transition">hello@pawsfectwalks.com</a>
                 </div>
               </div>
               <div className="flex items-center space-x-4">
@@ -96,12 +87,12 @@ export default function Contact() {
             </div>
 
             <div className="bg-white rounded-2xl shadow-xl p-8">
-              <h3 className="font-semibold mb-4">Our Certifications</h3>
+              <h3 className="font-semibold mb-4">Our care standards</h3>
               <ul className="space-y-2 text-gray-600">
-                <li>✓ Pet First Aid Certified</li>
-                <li>✓ Fully Insured</li>
-                <li>✓ Background Checked</li>
-                <li>✓ Member of Pet Sitters International</li>
+                <li>✓ Practical dog-care onboarding for every walker</li>
+                <li>✓ Local team members assigned by service area</li>
+                <li>✓ Clear handoff and visit-update procedures</li>
+                <li>✓ Project manager oversight from pickup to return</li>
               </ul>
             </div>
           </div>

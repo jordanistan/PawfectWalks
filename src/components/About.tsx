@@ -5,18 +5,18 @@ export default function About() {
   const features = [
     {
       icon: ShieldCheck,
-      title: "Professional & Reliable",
-      description: "Fully insured and Pet First Aid certified for your peace of mind."
+      title: "Organized Care",
+      description: "A project manager coordinates schedules, matching, and every handoff."
     },
     {
       icon: Clock,
-      title: "Flexible Scheduling",
-      description: "Available 7 days a week with convenient booking options."
+      title: "Local Rotations",
+      description: "Walkers are assigned by service area so the team can serve each neighborhood consistently."
     },
     {
       icon: Heart,
-      title: "Passionate Care",
-      description: "Treating every pet with the love and attention they deserve."
+      title: "Practical Training",
+      description: "Every walker completes dog-care onboarding before taking visits."
     }
   ];
 
@@ -24,11 +24,12 @@ export default function About() {
     <section id="about" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">About Us</h2>
+          <p className="text-sm font-semibold tracking-widest uppercase text-amber-600 mb-3">Care built around consistency</p>
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">A better walk starts with a better system</h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            We're dedicated to providing exceptional care for your furry family members. 
-            With years of experience and a genuine love for animals, we ensure your pets 
-            receive the attention and exercise they need to thrive.
+            Pawsfect Walks pairs thoughtful planning with genuinely attentive care. A dedicated
+            project manager coordinates each visit, matches your dog with the right local walker,
+            and stays accountable from handoff to return home.
           </p>
         </div>
 

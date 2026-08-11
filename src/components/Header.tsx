@@ -17,12 +17,13 @@ export default function Header() {
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center space-x-2">
             <PawPrint className="h-8 w-8 text-amber-400" />
-            <span className="text-2xl font-bold text-white">Pawfect Walks</span>
+            <span className="text-2xl font-bold text-white">Pawsfect Walks</span>
           </div>
           <div className="hidden md:flex space-x-8 text-white">
             <a href="#about" className="hover:text-amber-400 transition">About</a>
             <a href="#services" className="hover:text-amber-400 transition">Services</a>
-            <a href="#booking" className="hover:text-amber-400 transition">Book Now</a>
+            <a href="#careers" className="hover:text-amber-400 transition">Careers</a>
+            <a href="https://calendly.com/d/cr9k-n4r-p8f" className="hover:text-amber-400 transition">Book Now</a>
             <a href="#contact" className="hover:text-amber-400 transition">Contact</a>
           </div>
         </div>
@@ -34,7 +35,7 @@ export default function Header() {
             Because Every Pup Deserves the Best!
           </h1>
           <p className="text-xl text-gray-200 mb-8">
-            Professional dog walking and sitting services in Austin, TX
+            Reliable dog care, coordinated by a real person and delivered by a trusted local team in Austin, TX
           </p>
           <div className="flex items-center justify-center space-x-4">
             <a
