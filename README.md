@@ -36,6 +36,6 @@ Open [http://localhost:8080](http://localhost:8080) to review the production bui
 
 ## Contact
 
-Customer and career inquiries are currently handled by email at [hello@pawsfectwalks.com](mailto:hello@pawsfectwalks.com). Booking is handled through the Calendly link in the site navigation.
+Customer and career inquiries are currently handled by email at [hello@pawsfectwalks.com](mailto:hello@pawsfectwalks.com). The site runs a pre-launch waitlist (Contact section) rather than live booking while the local walker team is being staffed.
 
 The contact form uses Netlify Forms metadata and will collect submissions when deployed on Netlify. If a different hosting provider is selected, connect the form to that provider's form endpoint before launch.

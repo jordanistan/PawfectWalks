@@ -13,7 +13,7 @@ export default function Policies() {
         <div className="grid md:grid-cols-3 gap-8 text-gray-600">
           <article>
             <h3 className="text-lg font-semibold text-gray-900 mb-3">Privacy</h3>
-            <p>We use the information you send us to respond to inquiries, schedule care, and provide services. We do not sell your personal information. Booking links may take you to Calendly, which has its own privacy policy.</p>
+            <p>We use the information you send us to respond to inquiries, join the waitlist, and provide services once we're serving your area. We do not sell your personal information.</p>
           </article>
           <article>
             <h3 className="text-lg font-semibold text-gray-900 mb-3">Service terms</h3>
