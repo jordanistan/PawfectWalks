@@ -11,8 +11,7 @@ export default function Services() {
       features: [
         "One-on-one attention",
         "Flexible scheduling options",
-        "GPS tracked walks",
-        "Photo updates",
+        "Photo & text updates every visit",
         "Customized routes",
         "Fresh water refills"
       ]
@@ -38,9 +37,12 @@ export default function Services() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Services</h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Choose from our professional pet care services, tailored to meet your dog's 
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-3">
+            Choose from our professional pet care services, tailored to meet your dog's
             unique needs and personality.
+          </p>
+          <p className="text-sm text-amber-700 font-medium">
+            We're onboarding our first local walkers now — join the waitlist to be first in line.
           </p>
         </div>
 

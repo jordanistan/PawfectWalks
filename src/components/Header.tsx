@@ -22,8 +22,8 @@ export default function Header() {
           <div className="hidden md:flex space-x-8 text-white">
             <a href="#about" className="hover:text-amber-400 transition">About</a>
             <a href="#services" className="hover:text-amber-400 transition">Services</a>
-            <a href="#careers" className="hover:text-amber-400 transition">Careers</a>
-            <a href="https://calendly.com/d/cr9k-n4r-p8f" className="hover:text-amber-400 transition">Book Now</a>
+            <a href="#careers" className="hover:text-amber-400 transition">Earn Money</a>
+            <a href="#contact" className="hover:text-amber-400 transition">Join the Waitlist</a>
             <a href="#contact" className="hover:text-amber-400 transition">Contact</a>
           </div>
         </div>
@@ -31,6 +31,9 @@ export default function Header() {
 
       <div className="relative z-10 h-[calc(100vh-80px)] flex items-center justify-center text-center px-6">
         <div className="max-w-3xl">
+          <p className="inline-block text-sm font-semibold tracking-wide text-amber-400 bg-black/30 rounded-full px-4 py-1.5 mb-6">
+            Coming soon to Austin — building our local walker team now
+          </p>
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
             Because Every Pup Deserves the Best!
           </h1>
@@ -39,10 +42,10 @@ export default function Header() {
           </p>
           <div className="flex items-center justify-center space-x-4">
             <a
-              href="https://calendly.com/d/cr9k-n4r-p8f"
+              href="#contact"
               className="bg-amber-400 text-gray-900 px-8 py-3 rounded-full font-semibold hover:bg-amber-500 transition"
             >
-              Book Now
+              Join the Waitlist
             </a>
             <a
               href="#services"
@@ -51,6 +54,9 @@ export default function Header() {
               Our Services
             </a>
           </div>
+          <a href="#careers" className="inline-block mt-6 text-sm text-gray-200 hover:text-amber-400 transition">
+            Rather walk dogs for cash? See openings →
+          </a>
         </div>
       </div>
     </header>

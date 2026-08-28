@@ -21,8 +21,8 @@ export default function Footer() {
             <ul className="space-y-2 text-gray-400">
               <li><a href="#about" className="hover:text-amber-400 transition">About Us</a></li>
               <li><a href="#services" className="hover:text-amber-400 transition">Services</a></li>
-              <li><a href="#careers" className="hover:text-amber-400 transition">Careers</a></li>
-              <li><a href="https://calendly.com/d/cr9k-n4r-p8f" className="hover:text-amber-400 transition">Book Now</a></li>
+              <li><a href="#careers" className="hover:text-amber-400 transition">Earn Money</a></li>
+              <li><a href="#contact" className="hover:text-amber-400 transition">Join the Waitlist</a></li>
               <li><a href="#contact" className="hover:text-amber-400 transition">Contact</a></li>
               <li><a href="#policies" className="hover:text-amber-400 transition">Policies</a></li>
             </ul>
@@ -31,10 +31,10 @@ export default function Footer() {
           <div>
             <h4 className="text-lg font-semibold mb-4">Service Areas</h4>
             <ul className="space-y-2 text-gray-400">
-              <li>Downtown Austin</li>
-              <li>South Congress</li>
+              <li>Central & Downtown</li>
+              <li>South Austin</li>
               <li>East Austin</li>
-              <li>Round Rock</li>
+              <li>North Austin</li>
             </ul>
           </div>
           

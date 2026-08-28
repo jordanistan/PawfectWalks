@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, Clock, Heart } from 'lucide-react';
+import { ShieldCheck, Clock, Heart, BadgeCheck } from 'lucide-react';
 
 export default function About() {
   const features = [
@@ -17,6 +17,11 @@ export default function About() {
       icon: Heart,
       title: "Practical Training",
       description: "Every walker completes dog-care onboarding before taking visits."
+    },
+    {
+      icon: BadgeCheck,
+      title: "Walkers Who Earn It",
+      description: "Every walker on the team is here because the work pays real money — they show up and work hard for it, so your dog gets genuine attention every visit."
     }
   ];
 
@@ -33,7 +38,7 @@ export default function About() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-12">
+        <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-12">
           {features.map((feature, index) => (
             <div key={index} className="text-center">
               <div className="inline-block p-4 bg-amber-400 rounded-full mb-6">
