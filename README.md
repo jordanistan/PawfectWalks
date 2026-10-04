@@ -38,4 +38,8 @@ Open [http://localhost:8080](http://localhost:8080) to review the production bui
 
 Customer and career inquiries are currently handled by email at [hello@pawsfectwalks.com](mailto:hello@pawsfectwalks.com). The site runs a pre-launch waitlist (Contact section) rather than live booking while the local walker team is being staffed.
 
-The contact form uses Netlify Forms metadata and will collect submissions when deployed on Netlify. If a different hosting provider is selected, connect the form to that provider's form endpoint before launch.
+The contact form includes Netlify Forms metadata; receipt is unverified. Confirm build-time form detection and the actual deployed endpoint/inbox with synthetic data before relying on it. If a different hosting provider is selected, connect and test its form endpoint before launch.
+
+## Launch readiness — P003
+
+Start with [the launch dashboard](docs/launch/00_Launch_Dashboard.md). Ten Obsidian-compatible Markdown notes provide actionable insurance, capacity, intake, handling, service agreement, cancellation and payment tasks, blank templates, owner decisions and a launch rehearsal. They are **drafts**, not proof of active coverage, signed terms or working payments. Coordination: [illnetwork issue #29](https://github.com/jordanistan/illnetwork/issues/29). Keep completed operational/customer records private.

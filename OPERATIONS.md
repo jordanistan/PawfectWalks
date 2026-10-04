@@ -4,9 +4,13 @@ This is the zero-cost operating setup for pre-revenue stage. Upgrade to paid pet
 software (scheduling, payments, walker app) once booking volume makes the manual process
 the actual bottleneck — not before.
 
+## Current readiness status
+
+This document describes a proposed manual operating setup, not verified live integrations. Use [docs/launch/00_Launch_Dashboard.md](docs/launch/00_Launch_Dashboard.md) for P003's seven readiness gates, policies, evidence and owner decisions. Verify the host/form, real calendar destinations, email response channel, insurance/worker coverage and payment account before care is accepted. Do not equate form metadata or an external calendar link with a received inquiry or confirmed booking.
+
 ## Customer bookings
-- **Inquiry**: Netlify Form on the Contact section (already wired, free on Netlify's tier).
-- **Booking**: Calendly free tier (already linked in the header/hero).
+- **Inquiry**: Netlify metadata in the Contact section; actual host/form detection, receipt, limits and current plan must be verified.
+- **Booking**: An owner-selected scheduling tool or manual calendar after acceptance. Verify actual links/account/availability; an external booking link alone does not confirm readiness.
 - **Dog & owner records**: one Google Sheet, one row per dog — owner name/contact, address,
   zone, temperament, feeding/medication notes, emergency contact, assigned walker(s).
 
@@ -23,7 +27,7 @@ the actual bottleneck — not before.
   component) with columns: Dog, Owner, Time, Walker assigned, Status, Notes. The PM updates
   it by hand each morning. This *is* the "automation" at this stage — a shared source of
   truth beats scattered texts and emails.
-- Google Calendar (free), one calendar per zone, shared with that zone's walkers, for
+- A restricted Google Calendar per approved zone, containing nonidentifying visit IDs/windows rather than addresses, health notes or entry codes, shared with authorized walkers, for
   recurring visit times.
 
 ## Before taking on real walkers as contractors
