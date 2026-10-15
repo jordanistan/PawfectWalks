@@ -18,8 +18,8 @@ const roles = [
   {
     icon: ClipboardCheck,
     title: 'Project Manager',
-    label: 'Contract · Hiring now',
-    description: 'Our top priority hire right now. Own the daily care operation, become the familiar face owners trust, and build the local walker team from the ground up. Contract-based, with commission on every walker you recruit and onboard — the more great walkers you bring on, the more you earn. (Commission structure is still being finalized.)',
+    label: 'Hiring now',
+    description: 'Our top priority hire right now. Own the daily care operation, become the familiar face owners trust, and build the local walker team from the ground up. Pay, including any bonus for recruiting and onboarding walkers, is confirmed in writing before you start.',
     skills: ['Recruiting and vetting local walkers', 'Highly organized scheduling and dispatch', 'Confident owner communication', 'Good judgment when matching dogs and walkers'],
     localRequirement: 'Applicants must live in or near Austin and have a current government-issued state ID with a U.S. address.',
   },
@@ -48,9 +48,9 @@ export default function Careers() {
           <div>
             <h3 className="text-xl font-semibold mb-1">Austin is expensive. This is one of the easiest ways to close the gap.</h3>
             <p className="text-gray-300">
-              Local dog walkers typically make around $17–19/hour on other apps. We're not handing
-              20% of every booking to a platform, so local walkers here can earn roughly 30% more
-              — about $22–25/hour — for the same walks around the same neighborhood.
+              Most dog-walking apps keep a big cut of every booking. We're not handing 20% of every
+              booking to a platform, so more of what owners pay goes to the walker doing the walk.
+              Your pay rate is confirmed in writing before your first visit.
             </p>
           </div>
         </div>
