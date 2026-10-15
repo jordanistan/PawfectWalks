@@ -4,7 +4,7 @@ export default function NightOut() {
   return (
     <section className="py-16 bg-gray-900">
       <div className="max-w-5xl mx-auto px-6">
-        <div className="rounded-3xl bg-gradient-to-br from-amber-400 to-amber-500 p-10 md:p-12 flex flex-col md:flex-row items-center gap-8">
+        <div className="rounded-3xl bg-linear-to-br from-amber-400 to-amber-500 p-10 md:p-12 flex flex-col md:flex-row items-center gap-8">
           <div className="p-4 bg-white/30 rounded-full shrink-0">
             <Moon className="h-10 w-10 text-gray-900" />
           </div>
