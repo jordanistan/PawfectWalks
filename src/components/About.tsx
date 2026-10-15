@@ -1,4 +1,3 @@
-import React from 'react';
 import { ShieldCheck, Clock, Heart, BadgeCheck } from 'lucide-react';
 
 export default function About() {

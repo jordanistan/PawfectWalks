@@ -19,6 +19,7 @@ The development server runs at `http://localhost:5173`.
 
 ```bash
 npm run lint
+npm run typecheck
 npm run build
 npm audit --audit-level=high
 ```
@@ -38,7 +39,7 @@ Open [http://localhost:8080](http://localhost:8080) to review the production bui
 
 Customer and career inquiries are currently handled by email at [hello@pawsfectwalks.com](mailto:hello@pawsfectwalks.com). The site runs a pre-launch waitlist (Contact section) rather than live booking while the local walker team is being staffed.
 
-The contact form includes Netlify Forms metadata; receipt is unverified. Confirm build-time form detection and the actual deployed endpoint/inbox with synthetic data before relying on it. If a different hosting provider is selected, connect and test its form endpoint before launch.
+The waitlist form has no backend: submitting it opens the visitor's email app with a pre-filled message to `hello@pawsfectwalks.com`. It works on any static host. Inbox delivery was confirmed by the owner on 2026-10-15. Replace it with a real form endpoint once a host or form service is chosen.
 
 ## Launch readiness — P003
 

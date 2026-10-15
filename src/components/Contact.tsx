@@ -1,5 +1,19 @@
-import React from 'react';
+import type { FormEvent } from 'react';
 import { Mail, MapPin } from 'lucide-react';
+
+// No form backend yet: submitting opens a pre-filled email to the waitlist inbox.
+function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  event.preventDefault();
+  const data = new FormData(event.currentTarget);
+  const body = [
+    `Name: ${data.get('name')}`,
+    `Email: ${data.get('email')}`,
+    '',
+    'About my dog:',
+    `${data.get('dog_details')}`,
+  ].join('\n');
+  window.location.href = `mailto:hello@pawsfectwalks.com?subject=${encodeURIComponent('Waitlist request')}&body=${encodeURIComponent(body)}`;
+}
 
 export default function Contact() {
   return (
@@ -15,11 +29,7 @@ export default function Contact() {
 
         <div className="grid md:grid-cols-2 gap-12">
           <div className="bg-white rounded-2xl shadow-xl p-8">
-            <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" className="space-y-6">
-              <input type="hidden" name="form-name" value="contact" />
-              <p className="hidden">
-                <label>Do not fill this out: <input name="bot-field" /></label>
-              </p>
+            <form name="contact" onSubmit={handleSubmit} className="space-y-6 pt-6">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Your Name

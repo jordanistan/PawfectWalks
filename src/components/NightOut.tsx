@@ -1,4 +1,3 @@
-import React from 'react';
 import { Moon, ArrowRight } from 'lucide-react';
 
 export default function NightOut() {
