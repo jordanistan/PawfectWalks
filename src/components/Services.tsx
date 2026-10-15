@@ -22,7 +22,7 @@ export default function Services() {
       duration: "per hour",
       features: [
         "In-home care",
-        "Feeding & medication",
+        "Feeding on your schedule",
         "Regular updates",
         "Playtime & exercise",
         "Plant watering",
