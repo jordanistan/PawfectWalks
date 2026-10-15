@@ -39,7 +39,7 @@ Open [http://localhost:8080](http://localhost:8080) to review the production bui
 
 Customer and career inquiries are currently handled by email at [hello@pawsfectwalks.com](mailto:hello@pawsfectwalks.com). The site runs a pre-launch waitlist (Contact section) rather than live booking while the local walker team is being staffed.
 
-The waitlist form has no backend: submitting it opens the visitor's email app with a pre-filled message to `hello@pawsfectwalks.com`. It works on any static host, but delivery depends on that inbox existing and being monitored — send a synthetic test before relying on it. Replace it with a real form endpoint once a host or form service is chosen.
+The waitlist form has no backend: submitting it opens the visitor's email app with a pre-filled message to `hello@pawsfectwalks.com`. It works on any static host. Inbox delivery was confirmed by the owner on 2026-10-15. Replace it with a real form endpoint once a host or form service is chosen.
 
 ## Launch readiness — P003
 
