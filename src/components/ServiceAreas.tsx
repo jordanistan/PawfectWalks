@@ -1,4 +1,3 @@
-import React from 'react';
 import { MapPinned } from 'lucide-react';
 
 const zones = [

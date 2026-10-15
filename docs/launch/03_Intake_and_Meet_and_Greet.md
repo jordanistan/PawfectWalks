@@ -35,6 +35,6 @@ Set 2FA, access removal on walker departure, a written retention/deletion policy
 
 ## Verify receipt
 
-Native `Contact.tsx` includes Netlify metadata. That does **not** prove the chosen host receives submissions. Verify the real deployment, required form detection/endpoint, notification, spam/error handling and restricted storage with synthetic data. Verify inbound and outbound `hello@pawsfectwalks.com` separately. An email link in source does not prove routing or a sender exists.
+Native `Contact.tsx` has no form backend; submitting opens a pre-filled email to `hello@pawsfectwalks.com`. That does **not** prove the inbox receives or answers mail. Verify delivery, notification, spam handling and restricted storage with synthetic data, and choose a real form endpoint before collecting structured intake. Verify inbound and outbound `hello@pawsfectwalks.com` separately. An email link in source does not prove routing or a sender exists.
 
 **Done:** synthetic inquiry reaches the actual controlled inbox/storage; meet-and-greet checklist rehearsed; acceptance/decline and permissions tested; no sensitive fields exposed publicly.

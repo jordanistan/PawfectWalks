@@ -1,4 +1,3 @@
-import React from 'react';
 import { Handshake, ArrowRight } from 'lucide-react';
 
 export default function Community() {

@@ -6,10 +6,10 @@ the actual bottleneck — not before.
 
 ## Current readiness status
 
-This document describes a proposed manual operating setup, not verified live integrations. Use [docs/launch/00_Launch_Dashboard.md](docs/launch/00_Launch_Dashboard.md) for P003's seven readiness gates, policies, evidence and owner decisions. Verify the host/form, real calendar destinations, email response channel, insurance/worker coverage and payment account before care is accepted. Do not equate form metadata or an external calendar link with a received inquiry or confirmed booking.
+This document describes a proposed manual operating setup, not verified live integrations. Use [docs/launch/00_Launch_Dashboard.md](docs/launch/00_Launch_Dashboard.md) for P003's seven readiness gates, policies, evidence and owner decisions. Verify the host, inquiry inbox, real calendar destinations, email response channel, insurance/worker coverage and payment account before care is accepted. Do not equate form metadata or an external calendar link with a received inquiry or confirmed booking.
 
 ## Customer bookings
-- **Inquiry**: Netlify metadata in the Contact section; actual host/form detection, receipt, limits and current plan must be verified.
+- **Inquiry**: the Contact section's waitlist form opens a pre-filled email to `hello@pawsfectwalks.com` (no form backend). Verify that inbox receives mail and has an owner who replies.
 - **Booking**: An owner-selected scheduling tool or manual calendar after acceptance. Verify actual links/account/availability; an external booking link alone does not confirm readiness.
 - **Dog & owner records**: one Google Sheet, one row per dog — owner name/contact, address,
   zone, temperament, feeding/medication notes, emergency contact, assigned walker(s).

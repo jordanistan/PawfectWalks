@@ -1,4 +1,3 @@
-import React from 'react';
 import { MessageCircleHeart, PawPrint, Send } from 'lucide-react';
 
 const steps = [

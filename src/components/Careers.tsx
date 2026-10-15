@@ -1,4 +1,3 @@
-import React from 'react';
 import { ArrowRight, ClipboardCheck, DollarSign, MapPinned, Mic2, ShieldCheck, Users } from 'lucide-react';
 
 const steps = [
@@ -118,7 +117,7 @@ export default function Careers() {
           <div>
             <h3 className="text-xl font-semibold text-gray-900 mb-1">Walk dogs. Build your own thing, too.</h3>
             <p className="text-gray-600">
-              A lot of our best walkers are already building something else — a comedy set, a band,
+              Plenty of great walkers are also building something else — a comedy set, a band,
               a small business. Self-promotion is welcome here: if an owner shows interest, tell
               them about your show, your art, your page. Dogs are funny, neighbors talk, and good
               stories travel. We just ask that the dog's care always comes first.
