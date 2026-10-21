@@ -48,7 +48,7 @@ export default function Header() {
             </a>
             <a
               href="#services"
-              className="bg-white/10 backdrop-blur-sm text-white px-8 py-3 rounded-full font-semibold hover:bg-white/20 transition"
+              className="bg-white/10 backdrop-blur-xs text-white px-8 py-3 rounded-full font-semibold hover:bg-white/20 transition"
             >
               Our Services
             </a>
