@@ -4,23 +4,23 @@ export default function About() {
   const features = [
     {
       icon: ShieldCheck,
-      title: "Organized Care",
-      description: "A project manager coordinates schedules, matching, and every handoff."
+      title: "Walking-first plan",
+      description: "The proposed first pilot is intentionally narrow while its operating details are reviewed."
     },
     {
       icon: Clock,
-      title: "Local Rotations",
-      description: "Walkers are assigned by service area so the team can serve each neighborhood consistently."
+      title: "Manual review",
+      description: "A future request would be reviewed by a person before any visit could be confirmed."
     },
     {
       icon: Heart,
-      title: "Practical Training",
-      description: "Every walker completes dog-care onboarding before taking visits."
+      title: "Safety before service",
+      description: "Insurance, handling, intake, agreements, cancellation terms, and payment must be settled first."
     },
     {
       icon: BadgeCheck,
-      title: "Walkers Who Earn It",
-      description: "Every walker on the team is here because the work pays real money — they show up and work hard for it, so your dog gets genuine attention every visit."
+      title: "Honest updates",
+      description: "The site will say clearly when the pilot is ready; joining the waitlist does not reserve care."
     }
   ];
 
@@ -31,9 +31,9 @@ export default function About() {
           <p className="text-sm font-semibold tracking-widest uppercase text-amber-600 mb-3">Care built around consistency</p>
           <h2 className="text-4xl font-bold text-gray-900 mb-4">A better walk starts with a better system</h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Pawsfect Walks pairs thoughtful planning with genuinely attentive care. A dedicated
-            project manager coordinates each visit, matches your dog with the right local walker,
-            and stays accountable from handoff to return home.
+            Pawsfect Walks is still being shaped. The goal is a small, walking-first Austin pilot
+            with clear handoffs and human communication, but the operating details must be approved
+            before anyone can reserve or pay for care.
           </p>
         </div>
 

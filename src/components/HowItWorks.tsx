@@ -3,18 +3,18 @@ import { MessageCircleHeart, PawPrint, Send } from 'lucide-react';
 const steps = [
   {
     icon: Send,
-    title: 'Tell us about your dog',
-    description: 'A couple minutes: your dog, your neighborhood, and when you need someone.',
+    title: 'Join the waitlist',
+    description: 'Share only your name, email, general neighborhood, and the kind of timing you may need.',
   },
   {
     icon: PawPrint,
-    title: 'We match you with a local walker',
-    description: 'A real person in your zone who already knows the neighborhood — not a stranger from across town.',
+    title: 'We finish launch readiness',
+    description: 'Insurance, operating policies, availability, agreements, and payment still need approval.',
   },
   {
     icon: MessageCircleHeart,
-    title: 'Relax — you\'ll get updates',
-    description: 'Photos and a quick note while they\'re out, so you know your dog is having a great time.',
+    title: 'We announce what is ready',
+    description: 'Waitlist members can receive a clear update only after a safe pilot scope is approved.',
   },
 ];
 
@@ -24,14 +24,14 @@ export default function HowItWorks() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <p className="text-sm font-semibold tracking-widest uppercase text-amber-600 mb-3">
-            No apps to figure out, no guesswork
+            A simple first step
           </p>
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Getting your dog a walker should feel as easy as getting a ride
+            Start with interest, not a reservation
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            You already know how this works from ordering a ride or dinner. This isn't
-            different — just for your dog.
+            The waitlist helps us understand general interest while the real operating decisions
+            remain pending. It does not promise timing, coverage, or a confirmed visit.
           </p>
         </div>
 

@@ -21,7 +21,7 @@ export default function Header() {
           <div className="hidden md:flex space-x-8 text-white">
             <a href="#about" className="hover:text-amber-400 transition">About</a>
             <a href="#services" className="hover:text-amber-400 transition">Services</a>
-            <a href="#careers" className="hover:text-amber-400 transition">Earn Money</a>
+            <a href="#launch-status" className="hover:text-amber-400 transition">Launch Status</a>
             <a href="#contact" className="hover:text-amber-400 transition">Join the Waitlist</a>
             <a href="#contact" className="hover:text-amber-400 transition">Contact</a>
           </div>
@@ -31,13 +31,13 @@ export default function Header() {
       <div className="relative z-10 h-[calc(100vh-80px)] flex items-center justify-center text-center px-6">
         <div className="max-w-3xl">
           <p className="inline-block text-sm font-semibold tracking-wide text-amber-400 bg-black/30 rounded-full px-4 py-1.5 mb-6">
-            Coming soon to Austin — building our local walker team now
+            Pre-launch in Austin — join the waitlist for updates
           </p>
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
             Because Every Pup Deserves the Best!
           </h1>
           <p className="text-xl text-gray-200 mb-8">
-            Reliable dog care, coordinated by a real person and delivered by a trusted local team in Austin, TX
+            A thoughtful dog-walking concept taking the time to build a safe, clear first pilot
           </p>
           <div className="flex items-center justify-center space-x-4">
             <a
@@ -50,11 +50,11 @@ export default function Header() {
               href="#services"
               className="bg-white/10 backdrop-blur-xs text-white px-8 py-3 rounded-full font-semibold hover:bg-white/20 transition"
             >
-              Our Services
+              See the Plan
             </a>
           </div>
-          <a href="#careers" className="inline-block mt-6 text-sm text-gray-200 hover:text-amber-400 transition">
-            Rather walk dogs for cash? See openings →
+          <a href="#launch-status" className="inline-block mt-6 text-sm text-gray-200 hover:text-amber-400 transition">
+            Read what is — and is not — available yet →
           </a>
         </div>
       </div>

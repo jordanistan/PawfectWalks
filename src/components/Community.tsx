@@ -9,20 +9,19 @@ export default function Community() {
         </div>
         <h2 className="text-4xl font-bold text-gray-900 mb-4">A good neighbor, not just a service</h2>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
-          Austin has no shortage of places dog owners already love spending time — membership dog
-          parks, indoor dog clubs, dog-friendly cafés. Almost none of them offer walking or pickup,
-          because it's outside what they do. That's exactly where we'd like to fit in — as the
-          walk before or after your dog's time there.
+          Austin has no shortage of places where dog owners build community. If the walking pilot
+          becomes launch-ready, Pawsfect Walks would like to participate as a careful local neighbor
+          with clear boundaries and straightforward communication.
         </p>
         <p className="text-gray-500 mb-8">
-          Run a dog-focused business in Austin and want to offer your members an easy way to get
-          their dog picked up or walked? We'd love to talk.
+          Run a dog-focused business in Austin and want to share general feedback on the concept?
+          A conversation does not create a partnership or make care available.
         </p>
         <a
           href="mailto:hello@pawsfectwalks.com?subject=Partnership%20inquiry"
           className="inline-flex items-center gap-2 bg-gray-900 text-white px-6 py-3 rounded-full font-semibold hover:bg-gray-800 transition"
         >
-          Partner with us <ArrowRight className="h-4 w-4" />
+          Share feedback <ArrowRight className="h-4 w-4" />
         </a>
       </div>
     </section>

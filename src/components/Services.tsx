@@ -1,32 +1,29 @@
-import { DogIcon, Home } from 'lucide-react';
+import { DogIcon, ShieldCheck } from 'lucide-react';
 
 export default function Services() {
   const services = [
     {
       icon: DogIcon,
-      title: "Dog Walking",
-      price: "$50",
-      duration: "per hour",
+      title: "Proposed walking pilot",
+      status: "Concept only",
       features: [
-        "One-on-one attention",
-        "Flexible scheduling options",
-        "Photo & text updates every visit",
-        "Customized routes",
-        "Fresh water refills"
+        "Individual household walks",
+        "Owner-attended introduction before care",
+        "Approved leash and handling rules",
+        "Clear visit updates",
+        "Manual acceptance before any confirmation"
       ]
     },
     {
-      icon: Home,
-      title: "Dog Sitting",
-      price: "From $50",
-      duration: "per hour",
+      icon: ShieldCheck,
+      title: "Readiness first",
+      status: "Decisions pending",
       features: [
-        "In-home care",
-        "Feeding on your schedule",
-        "Regular updates",
-        "Playtime & exercise",
-        "Plant watering",
-        "Mail collection"
+        "Verified insurance before paid care",
+        "Approved launch boundary and schedule",
+        "Reviewed intake and handling process",
+        "Signed terms before a visit",
+        "Tested payment and cancellation process"
       ]
     }
   ];
@@ -37,11 +34,11 @@ export default function Services() {
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Services</h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-3">
-            Choose from our professional pet care services, tailored to meet your dog's
-            unique needs and personality.
+            This is the proposed shape of a small first pilot, not a menu of currently
+            available visits.
           </p>
           <p className="text-sm text-amber-700 font-medium">
-            We're onboarding our first local walkers now — join the waitlist to be first in line.
+            Rates, availability, and the final scope will be published only after review.
           </p>
         </div>
 
@@ -53,8 +50,7 @@ export default function Services() {
                   <service.icon className="h-8 w-8 text-white" />
                 </div>
                 <div className="text-right">
-                  <p className="text-3xl font-bold text-gray-900">{service.price}</p>
-                  <p className="text-gray-600">{service.duration}</p>
+                  <p className="text-sm font-semibold text-amber-700 bg-amber-50 rounded-full px-3 py-1">{service.status}</p>
                 </div>
               </div>
               <h3 className="text-2xl font-semibold mb-6">{service.title}</h3>

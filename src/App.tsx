@@ -6,7 +6,7 @@ import NightOut from './components/NightOut';
 import ServiceAreas from './components/ServiceAreas';
 import Community from './components/Community';
 import Contact from './components/Contact';
-import Careers from './components/Careers';
+import LaunchStatus from './components/LaunchStatus';
 import Policies from './components/Policies';
 import Footer from './components/Footer';
 
@@ -29,7 +29,7 @@ function App() {
       <NightOut />
       <ServiceAreas />
       <Community />
-      <Careers />
+      <LaunchStatus />
       <Contact />
       <Policies />
       <Footer />

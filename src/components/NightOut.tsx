@@ -10,13 +10,12 @@ export default function NightOut() {
           </div>
           <div className="flex-1 text-center md:text-left">
             <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
-              Sometimes your dog just needs a night out
+              A future evening-walk idea
             </h3>
             <p className="text-gray-900/80 text-lg">
-              Not every walk has to be about your schedule. When you're not up for it but your
-              dog has energy to burn, a "Dog's Night Out" means a local walker takes them for an
-              evening stroll, no leash in your hand required. Join the waitlist to be first in
-              line once this is live in your neighborhood.
+              The long-term idea is straightforward: an owner could request an evening dog walk
+              when the approved pilot has capacity. For now, this is a concept rather than an
+              offered visit. The waitlist is only a way to hear future launch updates.
             </p>
           </div>
           <a

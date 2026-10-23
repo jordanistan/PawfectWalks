@@ -11,7 +11,7 @@ export default function Footer() {
               <span className="text-xl font-bold">Pawsfect Walks</span>
             </div>
             <p className="text-gray-400">
-              Professional dog walking and sitting services in Austin, TX.
+              A pre-launch Austin dog-walking concept with a waitlist for future updates.
             </p>
           </div>
           
@@ -20,7 +20,7 @@ export default function Footer() {
             <ul className="space-y-2 text-gray-400">
               <li><a href="#about" className="hover:text-amber-400 transition">About Us</a></li>
               <li><a href="#services" className="hover:text-amber-400 transition">Services</a></li>
-              <li><a href="#careers" className="hover:text-amber-400 transition">Earn Money</a></li>
+              <li><a href="#launch-status" className="hover:text-amber-400 transition">Launch Status</a></li>
               <li><a href="#contact" className="hover:text-amber-400 transition">Join the Waitlist</a></li>
               <li><a href="#contact" className="hover:text-amber-400 transition">Contact</a></li>
               <li><a href="#policies" className="hover:text-amber-400 transition">Policies</a></li>
@@ -28,12 +28,12 @@ export default function Footer() {
           </div>
           
           <div>
-            <h4 className="text-lg font-semibold mb-4">Service Areas</h4>
+            <h4 className="text-lg font-semibold mb-4">Availability</h4>
             <ul className="space-y-2 text-gray-400">
-              <li>Central & Downtown</li>
-              <li>South Austin</li>
-              <li>East Austin</li>
-              <li>North Austin</li>
+              <li>Austin pilot boundary pending</li>
+              <li>No published operating hours</li>
+              <li>No confirmed visits</li>
+              <li>Waitlist updates only</li>
             </ul>
           </div>
           
