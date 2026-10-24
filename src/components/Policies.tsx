@@ -24,7 +24,7 @@ export default function Policies() {
           </article>
         </div>
 
-        <p className="text-xs text-gray-500 mt-10">These are introductory website policies, not a substitute for a reviewed service agreement or legal advice. Contact hello@pawsfectwalks.com with policy questions.</p>
+        <p className="text-xs text-gray-500 mt-10">These are introductory website policies, not a substitute for a reviewed service agreement or legal advice. Contact jordan.robison@gmail.com with policy questions.</p>
       </div>
     </section>
   );
