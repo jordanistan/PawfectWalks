@@ -18,7 +18,7 @@ export default function Community() {
           A conversation does not create a partnership or make care available.
         </p>
         <a
-          href="mailto:hello@pawsfectwalks.com?subject=Partnership%20inquiry"
+          href="mailto:jordan.robison@gmail.com?subject=Partnership%20inquiry"
           className="inline-flex items-center gap-2 bg-gray-900 text-white px-6 py-3 rounded-full font-semibold hover:bg-gray-800 transition"
         >
           Share feedback <ArrowRight className="h-4 w-4" />

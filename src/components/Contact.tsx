@@ -12,7 +12,7 @@ function handleSubmit(event: FormEvent<HTMLFormElement>) {
     'General interest:',
     `${data.get('interest')}`,
   ].join('\n');
-  window.location.href = `mailto:hello@pawsfectwalks.com?subject=${encodeURIComponent('Waitlist request')}&body=${encodeURIComponent(body)}`;
+  window.location.href = `mailto:jordan.robison@gmail.com?subject=${encodeURIComponent('Waitlist request')}&body=${encodeURIComponent(body)}`;
 }
 
 export default function Contact() {
@@ -92,7 +92,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="font-semibold">Email</h3>
-                  <a href="mailto:hello@pawsfectwalks.com" className="text-gray-600 hover:text-amber-600 transition">hello@pawsfectwalks.com</a>
+                  <a href="mailto:jordan.robison@gmail.com" className="text-gray-600 hover:text-amber-600 transition">jordan.robison@gmail.com</a>
                 </div>
               </div>
               <div className="flex items-center space-x-4">

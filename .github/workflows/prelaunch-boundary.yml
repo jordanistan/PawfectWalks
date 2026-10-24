@@ -39,4 +39,6 @@ jobs:
       - name: Test the public boundary
         run: |
           python3 -m unittest scripts.test_prelaunch_boundary -v
+          python3 -m unittest scripts.test_inquiry -v
           python3 scripts/check_prelaunch.py
+          python3 scripts/check_inquiry.py

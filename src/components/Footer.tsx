@@ -39,7 +39,7 @@ export default function Footer() {
           
           <div>
             <h4 className="text-lg font-semibold mb-4">Email Us</h4>
-            <a href="mailto:hello@pawsfectwalks.com" className="text-gray-400 hover:text-amber-400 transition">hello@pawsfectwalks.com</a>
+            <a href="mailto:jordan.robison@gmail.com" className="text-gray-400 hover:text-amber-400 transition">jordan.robison@gmail.com</a>
             <p className="text-gray-500 mt-2 text-sm">We’re currently available by email only.</p>
           </div>
         </div>
