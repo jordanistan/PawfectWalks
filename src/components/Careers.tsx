@@ -1,4 +1,4 @@
-import { BriefcaseBusiness, Dog, Mail } from 'lucide-react';
+import { Briefcase, Dog, Mail } from 'lucide-react';
 
 const openings = [
   {
@@ -13,7 +13,7 @@ const openings = [
   {
     title: 'Project Manager / Dispatch',
     schedule: 'Operations · Austin-based coordination',
-    icon: BriefcaseBusiness,
+    icon: Briefcase,
     description: 'Help coordinate schedules, thoughtful walker assignments, and communication with pet owners.',
     duties: ['Manage schedules and service-area coordination', 'Track visit updates and changes', 'Support a consistent customer experience'],
     qualifications: 'Strong organization, scheduling experience, good judgment, and excellent communication skills.',
