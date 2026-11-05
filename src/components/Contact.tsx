@@ -1,119 +1,85 @@
 import type { FormEvent } from 'react';
 import { Mail, MapPin } from 'lucide-react';
 
-// No form backend yet: submitting opens a pre-filled email to the waitlist inbox.
+const CONTACT_EMAIL = 'hello@pawsfectwalks.com';
+
 function handleSubmit(event: FormEvent<HTMLFormElement>) {
   event.preventDefault();
   const data = new FormData(event.currentTarget);
   const body = [
-    `Name: ${data.get('name')}`,
-    `Email: ${data.get('email')}`,
-    '',
-    'General interest:',
-    `${data.get('interest')}`,
+    'Client waiting list request',
+    'Name: ' + data.get('name'),
+    'Email: ' + data.get('email'),
+    'Austin neighborhood: ' + data.get('neighborhood'),
+    'Preferred walk timing: ' + data.get('timing'),
+    'Message: ' + (data.get('message') || 'No additional message'),
   ].join('\n');
-  window.location.href = `mailto:jordan.robison@gmail.com?subject=${encodeURIComponent('Waitlist request')}&body=${encodeURIComponent(body)}`;
+  window.location.href = 'mailto:' + CONTACT_EMAIL +
+    '?subject=' + encodeURIComponent('Pawsfect Walks — Client Waiting List') +
+    '&body=' + encodeURIComponent(body);
 }
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Join the Waitlist</h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Pawsfect Walks is a Pre-launch concept. Share only general interest and we can send an
-            update if an approved pilot becomes available. Submitting this waitlist request does not create a booking.
+    <section id="contact" className="bg-gray-50 py-20">
+      <div className="mx-auto max-w-6xl px-6">
+        <div className="mb-12 text-center">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-amber-700">Stay in the loop</p>
+          <h2 className="mb-4 text-4xl font-bold text-gray-900">Join the Client Waiting List</h2>
+          <p className="mx-auto max-w-2xl text-lg text-gray-600">
+            Tell us a little about your dog's routine. We'll reach out as openings become available in your area.
           </p>
         </div>
-
-        <div className="grid md:grid-cols-2 gap-12">
-          <div className="bg-white rounded-2xl shadow-xl p-8">
-            <form name="contact" onSubmit={handleSubmit} className="space-y-6 pt-6">
+        <div className="grid gap-10 lg:grid-cols-5">
+          <div className="rounded-2xl bg-white p-8 shadow-xl lg:col-span-3">
+            <form name="client-waiting-list" onSubmit={handleSubmit} className="space-y-5">
               <div>
-                <label htmlFor="waitlist-name" className="block text-sm font-medium text-gray-700 mb-2">
-                  Your Name
-                </label>
-                <input
-                  name="name"
-                  id="waitlist-name"
-                  type="text"
-                  autoComplete="name"
-                  required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-400 focus:border-transparent"
-                  placeholder="John Doe"
-                />
+                <label htmlFor="client-name" className="mb-2 block font-medium text-gray-700">Your name</label>
+                <input id="client-name" name="name" required autoComplete="name" className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-amber-400 focus:outline-none" placeholder="Your name" />
               </div>
               <div>
-                <label htmlFor="waitlist-email" className="block text-sm font-medium text-gray-700 mb-2">
-                  Email Address
-                </label>
-                <input
-                  name="email"
-                  id="waitlist-email"
-                  type="email"
-                  autoComplete="email"
-                  required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-400 focus:border-transparent"
-                  placeholder="john@example.com"
-                />
+                <label htmlFor="client-email" className="mb-2 block font-medium text-gray-700">Email address</label>
+                <input id="client-email" name="email" type="email" required autoComplete="email" className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-amber-400 focus:outline-none" placeholder="you@example.com" />
+              </div>
+              <div className="grid gap-5 sm:grid-cols-2">
+                <div>
+                  <label htmlFor="client-neighborhood" className="mb-2 block font-medium text-gray-700">General Austin neighborhood</label>
+                  <input id="client-neighborhood" name="neighborhood" required className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-amber-400 focus:outline-none" placeholder="e.g. Clarksville" />
+                </div>
+                <div>
+                  <label htmlFor="client-timing" className="mb-2 block font-medium text-gray-700">Preferred timing</label>
+                  <select id="client-timing" name="timing" required defaultValue="" className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-amber-400 focus:outline-none">
+                    <option value="" disabled>Select a time</option>
+                    <option>Weekday mornings</option>
+                    <option>Weekday afternoons</option>
+                    <option>Evenings</option>
+                    <option>Weekends</option>
+                    <option>Flexible / recurring</option>
+                  </select>
+                </div>
               </div>
               <div>
-                <label htmlFor="waitlist-interest" className="block text-sm font-medium text-gray-700 mb-2">
-                  General Interest
-                </label>
-                <textarea
-                  name="interest"
-                  id="waitlist-interest"
-                  aria-describedby="waitlist-privacy"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-400 focus:border-transparent"
-                  rows={4}
-                  placeholder="General neighborhood and timing only — no street address or private records"
-                ></textarea>
+                <label htmlFor="client-message" className="mb-2 block font-medium text-gray-700">Anything else? <span className="text-sm font-normal text-gray-500">(optional)</span></label>
+                <textarea id="client-message" name="message" rows={3} className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-amber-400 focus:outline-none" placeholder="Tell us what kind of walks you're interested in." />
               </div>
-              <p id="waitlist-privacy" className="text-sm text-gray-600">
-                Do not send addresses, access codes, payment details, IDs, or medical records.
-                Submitting opens your email app; this site does not store the form.
-              </p>
-              <button
-                type="submit"
-                className="w-full bg-amber-400 text-gray-900 py-3 rounded-lg font-semibold hover:bg-amber-500 transition"
-              >
-                Join the Waitlist
+              <button type="submit" className="w-full rounded-full bg-amber-400 px-6 py-3 font-bold text-gray-900 hover:bg-amber-500">
+                Send My Waiting List Request
               </button>
+              <p className="text-sm text-gray-500">
+                This opens your email app with your request ready to send. Send the email to complete your request. Please do not include home access codes or medical records.
+              </p>
             </form>
           </div>
-
-          <div className="space-y-8">
-            <div className="bg-white rounded-2xl shadow-xl p-8">
-              <div className="flex items-center space-x-4 mb-6">
-                <div className="p-3 bg-amber-400 rounded-full">
-                  <Mail className="h-6 w-6 text-white" />
-                </div>
-                <div>
-                  <h3 className="font-semibold">Email</h3>
-                  <a href="mailto:jordan.robison@gmail.com" className="text-gray-600 hover:text-amber-600 transition">jordan.robison@gmail.com</a>
-                </div>
-              </div>
-              <div className="flex items-center space-x-4">
-                <div className="p-3 bg-amber-400 rounded-full">
-                  <MapPin className="h-6 w-6 text-white" />
-                </div>
-                <div>
-                  <h3 className="font-semibold">Launch location</h3>
-                  <p className="text-gray-600">Austin pilot boundary pending review</p>
-                </div>
-              </div>
+          <div className="space-y-6 lg:col-span-2">
+            <div className="rounded-2xl bg-white p-7 shadow-lg">
+              <Mail className="mb-4 h-8 w-8 text-amber-600" />
+              <h3 className="mb-2 text-xl font-semibold text-gray-900">Prefer email?</h3>
+              <a href={'mailto:' + CONTACT_EMAIL} className="break-all font-medium text-amber-700 hover:underline">{CONTACT_EMAIL}</a>
             </div>
-
-            <div className="bg-white rounded-2xl shadow-xl p-8">
-              <h3 className="font-semibold mb-4">Current boundaries</h3>
-              <ul className="space-y-2 text-gray-600">
-                <li>✓ Waitlist interest only</li>
-                <li>✓ No reservation or payment on this page</li>
-                <li>✓ No sensitive details in the initial message</li>
-                <li>✓ Launch updates only after readiness review</li>
-              </ul>
+            <div className="rounded-2xl bg-white p-7 shadow-lg">
+              <MapPin className="mb-4 h-8 w-8 text-amber-600" />
+              <h3 className="mb-2 text-xl font-semibold text-gray-900">Proudly Austin-focused</h3>
+              <p className="text-gray-600">Share your neighborhood and we'll follow up about availability.</p>
             </div>
           </div>
         </div>
