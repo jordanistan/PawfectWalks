@@ -1,6 +1,6 @@
 import { ShieldCheck, Clock, Heart, BadgeCheck } from 'lucide-react';
 const features=[
- {icon:ShieldCheck,title:'A safety-minded approach',description:'Thoughtful introductions, clear handling standards, and attention to each dog's needs.'},
+ {icon:ShieldCheck,title:'A safety-minded approach',description:"Thoughtful introductions, clear handling standards, and attention to each dog's needs."},
  {icon:Clock,title:'Carefully coordinated',description:'A clear point of contact and practical communication throughout the visit process.'},
  {icon:Heart,title:'Personal by design',description:'We focus on routines, familiar details, and the small things that make dogs happy.'},
  {icon:BadgeCheck,title:'Attention to detail',description:'A considered approach to pairing dogs and people for the right kind of walk.'}
