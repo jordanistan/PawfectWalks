@@ -1,80 +1,114 @@
 #!/usr/bin/env python3
-"""Check public marketing copy without exposing internal readiness details."""
+"""Fail closed when the built public artifact crosses the pre-launch boundary."""
 
 from __future__ import annotations
+
 import argparse
 from pathlib import Path
 import re
 
-EXPECTED_TITLE = "Pawsfect Walks | Thoughtful Dog Walking in Austin"
+
+EXPECTED_TITLE = "Pawsfect Walks | Austin Pre-launch Waitlist"
 EXPECTED_DESCRIPTION = (
-    "Discover attentive dog walking and drop-in care in Austin. "
-    "Join the client waiting list or ask about walker opportunities."
+    "Pawsfect Walks is a pre-launch Austin dog-care concept. Join the waitlist; "
+    "no booking, paid care, or recruiting is available."
 )
 REQUIRED = (
-    "Join the Client Waiting List",
-    "Dog Walker",
-    "Project Manager",
-    "Request an Interview",
-    "Send My Waiting List Request",
+    "Join the Waitlist",
+    "Pre-launch",
+    "Submitting this waitlist request does not create a booking.",
+    "Paid care is not available yet.",
+    "Recruiting is not open.",
+    "Do not send addresses, access codes, payment details, IDs, or medical records.",
 )
 PROHIBITED = (
-    "jordan.robison@gmail.com",
-    "pilot boundary pending",
-    "launch status",
-    "insurance and the handling",
-    "paid care is not available yet",
-    "recruiting is not open",
-    "building the foundation before offering care",
-    "start with interest, not a reservation",
-    "pre-launch concept",
+    "Hiring now",
+    "Apply in minutes",
+    "Walk dogs, get paid",
+    "Get paid to walk dogs",
+    "We bring the bookings",
+    "Apply by email",
+    "Tell us about yourself",
+    "government-issued state ID",
+    "Dog Sitting",
+    "sitting services",
+    "Austin, TX and surrounding areas",
+    "Central & Downtown",
+    "South Austin",
+    "East Austin",
+    "North Austin",
+    "pickup to return",
+    "any special needs",
 )
-UNSUPPORTED = re.compile(
-    r"(?:booking confirmed|pay now|coverage active|fully insured|licensed and bonded|"
-    r"guaranteed availability|hiring immediately)",
+COMMERCE = re.compile(
+    r"(?:\$[1-9]\d{1,3}(?:\.\d{2})?|\bper (?:hour|walk)\b|Book now|Booking confirmed|Checkout|Stripe|coverage active|care is available now)",
+    re.IGNORECASE,
+)
+RECRUITING = re.compile(
+    r"(?:\bapply\s+(?:now|by email|for|to)\b|(?:\b|%20)applications?\b|\bcareers?\b|"
+    r"\b(?:send|upload)\s+(?:(?:a|your)\s+)?resume\b|\bcandidates?\b|\bhiring\b|become a walker)",
     re.IGNORECASE,
 )
 
+
 class BoundaryError(RuntimeError):
-    """Public copy violates privacy, professionalism, or truthfulness checks."""
+    """The artifact is not a truthful waitlist-only public surface."""
+
 
 def inspect(html: str, bundle: str) -> None:
-    for marker in (
+    expected_meta = (
         f'<meta name="description" content="{EXPECTED_DESCRIPTION}" />',
         f'<meta property="og:title" content="{EXPECTED_TITLE}" />',
         f'<meta property="og:description" content="{EXPECTED_DESCRIPTION}" />',
         f"<title>{EXPECTED_TITLE}</title>",
         '<link rel="canonical" href="https://pawsfectwalks.com/" />',
-    ):
+    )
+    for marker in expected_meta:
         if marker not in html:
-            raise BoundaryError(f"missing page metadata: {marker}")
-    normalized = " ".join(bundle.split()).casefold()
+            raise BoundaryError(f"missing exact metadata: {marker}")
+
+    normalized = " ".join(bundle.split())
+    folded = normalized.casefold()
     for marker in REQUIRED:
-        if marker.casefold() not in normalized:
-            raise BoundaryError(f"missing customer or walker path: {marker}")
+        if " ".join(marker.split()).casefold() not in folded:
+            raise BoundaryError(f"missing required boundary: {marker}")
     for marker in PROHIBITED:
-        if marker.casefold() in normalized or marker.casefold() in html.casefold():
-            raise BoundaryError(f"prohibited personal/internal public text: {marker}")
-    if match := UNSUPPORTED.search(bundle):
-        raise BoundaryError(f"unsupported claim: {match.group(0)}")
+        if " ".join(marker.split()).casefold() in folded:
+            raise BoundaryError(f"prohibited public claim: {marker}")
+    if match := COMMERCE.search(normalized):
+        raise BoundaryError(f"review-required commerce claim: {match.group(0)}")
+
+    recruiting_text = folded
+    for approved_negative in (
+        "recruiting is not open.",
+        "no booking, paid care, or recruiting is available.",
+    ):
+        recruiting_text = recruiting_text.replace(approved_negative, "")
+    if match := RECRUITING.search(recruiting_text):
+        raise BoundaryError(f"prohibited staffing claim: {match.group(0)}")
+
 
 def verify_dist(dist: Path) -> None:
+    if not dist.is_dir():
+        raise BoundaryError(f"missing build directory: {dist}")
     html_path = dist / "index.html"
     scripts = sorted((dist / "assets").glob("index-*.js"))
     if not html_path.is_file() or len(scripts) != 1:
-        raise BoundaryError("expected built page and one compiled script")
+        raise BoundaryError("expected one index.html and exactly one hashed JavaScript bundle")
     inspect(
         html_path.read_text(encoding="utf-8", errors="strict"),
         scripts[0].read_text(encoding="utf-8", errors="strict"),
     )
+
 
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--dist", type=Path, default=Path("dist"))
     args = parser.parse_args()
     verify_dist(args.dist)
-    print("Pawsfect public privacy and marketing checks passed")
+    print("Pawsfect pre-launch boundary verified")
     return 0
+
 
 if __name__ == "__main__":
     raise SystemExit(main())
