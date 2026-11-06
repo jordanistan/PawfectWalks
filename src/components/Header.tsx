@@ -2,49 +2,60 @@ import { PawPrint } from 'lucide-react';
 
 export default function Header() {
   return (
-    <header className="relative min-h-[90vh] text-white">
+    <header className="relative h-screen">
       <div className="absolute inset-0">
         <img
           src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&q=80"
-          alt="Happy dogs enjoying the outdoors"
-          className="h-full w-full object-cover"
+          alt="Happy dogs running"
+          className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-black/55" />
+        <div className="absolute inset-0 bg-black/50"></div>
       </div>
-      <nav className="relative z-10 px-6 py-5">
-        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4">
-          <a href="#" className="flex items-center gap-2" aria-label="Pawsfect Walks home">
+
+      <nav className="relative z-10 px-6 py-4">
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
+          <div className="flex items-center space-x-2">
             <PawPrint className="h-8 w-8 text-amber-400" />
-            <span className="text-2xl font-bold">Pawsfect Walks</span>
-          </a>
-          <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm font-semibold sm:text-base">
-            <a href="#services" className="hover:text-amber-400">Services</a>
-            <a href="#about" className="hover:text-amber-400">Our Approach</a>
-            <a href="#service-areas" className="hover:text-amber-400">Austin</a>
-            <a href="#careers" className="hover:text-amber-400">Walk With Us</a>
-            <a href="#contact" className="rounded-full bg-amber-400 px-4 py-2 text-gray-900 hover:bg-amber-500">Waiting List</a>
+            <span className="text-2xl font-bold text-white">Pawsfect Walks</span>
+          </div>
+          <div className="hidden md:flex space-x-8 text-white">
+            <a href="#about" className="hover:text-amber-400 transition">About</a>
+            <a href="#services" className="hover:text-amber-400 transition">Services</a>
+            <a href="#launch-status" className="hover:text-amber-400 transition">Launch Status</a>
+            <a href="#contact" className="hover:text-amber-400 transition">Join the Waitlist</a>
+            <a href="#contact" className="hover:text-amber-400 transition">Contact</a>
           </div>
         </div>
       </nav>
-      <div className="relative z-10 flex min-h-[calc(90vh-95px)] items-center justify-center px-6 py-16 text-center">
-        <div className="max-w-4xl">
-          <p className="mb-6 inline-block rounded-full bg-black/35 px-5 py-2 text-sm font-semibold tracking-wide text-amber-300">
-            AUSTIN, TEXAS · PERSONAL DOG WALKS & DROP-INS
+
+      <div className="relative z-10 h-[calc(100vh-80px)] flex items-center justify-center text-center px-6">
+        <div className="max-w-3xl">
+          <p className="inline-block text-sm font-semibold tracking-wide text-amber-400 bg-black/30 rounded-full px-4 py-1.5 mb-6">
+            Pre-launch in Austin — join the waitlist for updates
           </p>
-          <h1 className="mb-6 text-5xl font-bold leading-tight md:text-7xl">
+          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
             Because Every Pup Deserves the Best!
           </h1>
-          <p className="mx-auto mb-9 max-w-2xl text-lg text-gray-100 md:text-xl">
-            Thoughtful dog care, happy routines, and more peace of mind for the people who love them.
+          <p className="text-xl text-gray-200 mb-8">
+            A thoughtful dog-walking concept taking the time to build a safe, clear first pilot
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <a href="#contact" className="rounded-full bg-amber-400 px-7 py-3 font-semibold text-gray-900 hover:bg-amber-500">
-              Join the Client Waiting List
+          <div className="flex items-center justify-center space-x-4">
+            <a
+              href="#contact"
+              className="bg-amber-400 text-gray-900 px-8 py-3 rounded-full font-semibold hover:bg-amber-500 transition"
+            >
+              Join the Waitlist
             </a>
-            <a href="#careers" className="rounded-full border border-white/70 bg-white/10 px-7 py-3 font-semibold text-white hover:bg-white/20">
-              Become a Walker
+            <a
+              href="#services"
+              className="bg-white/10 backdrop-blur-xs text-white px-8 py-3 rounded-full font-semibold hover:bg-white/20 transition"
+            >
+              See the Plan
             </a>
           </div>
+          <a href="#launch-status" className="inline-block mt-6 text-sm text-gray-200 hover:text-amber-400 transition">
+            Read what is — and is not — available yet →
+          </a>
         </div>
       </div>
     </header>
