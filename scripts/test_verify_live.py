@@ -175,5 +175,47 @@ class LiveIntegrityTests(unittest.TestCase):
                     load_dist(root)
 
 
+class WorkflowTests(unittest.TestCase):
+    def test_live_workflow_is_bound_to_build_inputs_and_trusted_main(self):
+        root = Path(__file__).resolve().parents[1]
+        workflow = (root / ".github/workflows/live-integrity.yml").read_text()
+        for path in (
+            "index.html",
+            "package.json",
+            "package-lock.json",
+            "postcss.config.js",
+            "vite.config.ts",
+            "tsconfig.json",
+            "tsconfig.app.json",
+            "tsconfig.node.json",
+            "src/**",
+            "public/**",
+            "scripts/check_prelaunch.py",
+            "scripts/test_prelaunch_boundary.py",
+            "scripts/check_inquiry.py",
+            "scripts/test_inquiry.py",
+            "scripts/verify_live.py",
+            "scripts/test_verify_live.py",
+            ".github/workflows/live-integrity.yml",
+        ):
+            with self.subTest(path=path):
+                self.assertEqual(workflow.count(f"- '{path}'"), 2)
+
+        self.assertIn("permissions:\n  contents: read", workflow)
+        self.assertEqual(workflow.count("persist-credentials: false"), 2)
+        self.assertEqual(workflow.count("timeout-minutes:"), 2)
+
+        live = workflow.split("\n  verify-live:\n", 1)[1]
+        self.assertIn("needs: validate", live)
+        self.assertIn(
+            "if: (github.event_name == 'schedule' || "
+            "github.event_name == 'workflow_dispatch') && "
+            "github.ref == 'refs/heads/main'",
+            live,
+        )
+        self.assertEqual(workflow.count("ref: ${{ github.sha }}"), 1)
+        self.assertEqual(live.count("ref: ${{ github.sha }}"), 1)
+
+
 if __name__ == "__main__":
     unittest.main()
