@@ -38,6 +38,7 @@ jobs:
         run: npm run build
       - name: Test the public boundary
         run: |
+          python3 -m unittest scripts.test_codeql_workflow -v
           python3 -m unittest scripts.test_prelaunch_boundary -v
           python3 -m unittest scripts.test_inquiry -v
           python3 scripts/check_prelaunch.py
