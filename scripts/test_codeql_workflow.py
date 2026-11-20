@@ -19,11 +19,28 @@ class CodeQLWorkflowTests(unittest.TestCase):
 
     def test_triggers_are_bounded_and_pull_request_target_is_absent(self) -> None:
         workflow = self.workflow
-        self.assertIn("push:\n    branches: [main]", workflow)
-        self.assertIn("pull_request:\n    branches: [main]", workflow)
-        self.assertIn("schedule:\n    - cron: '17 15 * * 5'", workflow)
-        self.assertIn("workflow_dispatch:", workflow)
+        triggers = workflow.split("on:\n", 1)[1].split("\npermissions:\n", 1)[0]
+        self.assertEqual(
+            triggers,
+            "  push:\n"
+            "    branches: [main]\n"
+            "  pull_request:\n"
+            "    branches: [main]\n"
+            "  schedule:\n"
+            "    - cron: '17 15 * * 5'\n"
+            "  workflow_dispatch:\n",
+        )
         self.assertNotIn("pull_request_target", workflow)
+
+    def test_superseded_runs_are_cancelled_on_the_same_ref(self) -> None:
+        self.assertEqual(
+            self.workflow.count(
+                "concurrency:\n"
+                "  group: pawsfect-codeql-${{ github.ref }}\n"
+                "  cancel-in-progress: true"
+            ),
+            1,
+        )
 
     def test_permissions_are_least_privilege(self) -> None:
         workflow = self.workflow
