@@ -30,6 +30,106 @@ TYPES = {
     ".txt": "text/plain",
     ".xml": "application/xml",
 }
+CHECKOUT_SHA = "3d3c42e5aac5ba805825da76410c181273ba90b1"
+SETUP_NODE_SHA = "249970729cb0ef3589644e2896645e5dc5ba9c38"
+EXPECTED_WORKFLOW = f"""name: Public source integrity
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'postcss.config.js'
+      - 'vite.config.ts'
+      - 'tsconfig.json'
+      - 'tsconfig.app.json'
+      - 'tsconfig.node.json'
+      - 'src/**'
+      - 'public/**'
+      - 'scripts/check_prelaunch.py'
+      - 'scripts/test_prelaunch_boundary.py'
+      - 'scripts/check_inquiry.py'
+      - 'scripts/test_inquiry.py'
+      - 'scripts/verify_live.py'
+      - 'scripts/test_verify_live.py'
+      - '.github/workflows/live-integrity.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'postcss.config.js'
+      - 'vite.config.ts'
+      - 'tsconfig.json'
+      - 'tsconfig.app.json'
+      - 'tsconfig.node.json'
+      - 'src/**'
+      - 'public/**'
+      - 'scripts/check_prelaunch.py'
+      - 'scripts/test_prelaunch_boundary.py'
+      - 'scripts/check_inquiry.py'
+      - 'scripts/test_inquiry.py'
+      - 'scripts/verify_live.py'
+      - 'scripts/test_verify_live.py'
+      - '.github/workflows/live-integrity.yml'
+  schedule:
+    - cron: '23 16 * * 6'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: public-source-integrity-${{{{ github.ref }}}}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out without persisted credentials
+        uses: actions/checkout@{CHECKOUT_SHA} # v7
+        with:
+          persist-credentials: false
+      - name: Run offline boundary and verifier tests
+        run: |
+          python3 -m unittest \\
+            scripts.test_prelaunch_boundary \\
+            scripts.test_inquiry \\
+            scripts.test_verify_live \\
+            -v
+
+  verify-live:
+    if: (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/main'
+    needs: validate
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out the trusted main commit
+        uses: actions/checkout@{CHECKOUT_SHA} # v7
+        with:
+          persist-credentials: false
+          ref: ${{{{ github.sha }}}}
+      - name: Set up Node.js
+        uses: actions/setup-node@{SETUP_NODE_SHA} # v6
+        with:
+          node-version: 24
+          cache: npm
+      - name: Install locked dependencies
+        run: npm ci --ignore-scripts
+      - name: Build reviewed source
+        run: npm run build
+      - name: Verify launch boundaries
+        run: |
+          python3 scripts/check_prelaunch.py --dist dist
+          python3 scripts/check_inquiry.py --dist dist
+      - name: Verify exact public bytes
+        run: python3 scripts/verify_live.py --dist dist
+"""
 
 
 class Response(io.BytesIO):
@@ -176,9 +276,16 @@ class LiveIntegrityTests(unittest.TestCase):
 
 
 class WorkflowTests(unittest.TestCase):
-    def test_live_workflow_is_bound_to_build_inputs_and_trusted_main(self):
+    @classmethod
+    def setUpClass(cls):
         root = Path(__file__).resolve().parents[1]
-        workflow = (root / ".github/workflows/live-integrity.yml").read_text()
+        cls.workflow = (root / ".github/workflows/live-integrity.yml").read_text()
+
+    def test_complete_live_integrity_workflow_contract_is_exact(self):
+        self.assertEqual(self.workflow, EXPECTED_WORKFLOW)
+
+    def test_live_workflow_is_bound_to_build_inputs_and_trusted_main(self):
+        workflow = self.workflow
         for path in (
             "index.html",
             "package.json",
