@@ -10,12 +10,55 @@ ROOT = Path(__file__).resolve().parents[1]
 WORKFLOW = ROOT / ".github/workflows/codeql.yml"
 CHECKOUT_SHA = "3d3c42e5aac5ba805825da76410c181273ba90b1"
 CODEQL_SHA = "33d7b85da1a04171e211befe2c739303b9a4c066"
+EXPECTED_WORKFLOW = f"""name: CodeQL
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: '17 15 * * 5'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pawsfect-codeql-${{{{ github.ref }}}}
+  cancel-in-progress: true
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      actions: read
+      contents: read
+      packages: read
+      security-events: write
+    steps:
+      - name: Check out without persisted credentials
+        uses: actions/checkout@{CHECKOUT_SHA} # v7
+        with:
+          persist-credentials: false
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@{CODEQL_SHA} # v4.39.3
+        with:
+          languages: javascript-typescript
+          queries: security-extended
+      - name: Analyze
+        uses: github/codeql-action/analyze@{CODEQL_SHA} # v4.39.3
+"""
 
 
 class CodeQLWorkflowTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         cls.workflow = WORKFLOW.read_text(encoding="utf-8")
+
+    def test_complete_workflow_contract_is_exact(self) -> None:
+        self.assertEqual(WORKFLOW.read_bytes(), EXPECTED_WORKFLOW.encode("utf-8"))
 
     def test_triggers_are_bounded_and_pull_request_target_is_absent(self) -> None:
         workflow = self.workflow
